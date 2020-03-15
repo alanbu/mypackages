@@ -1,0 +1,27 @@
+Cogs
+====
+
+Draw spirograph patterns
+ This program allows you to draw Spirograph patterns.
+ Simply specify the number of teeth around the wheel, the number of teeth around the plate and the hole you with to put your pen in and away you go!
+
+Current Version: 2.00-2
+
+Maintainer: Alan Buckley <alan_baa@hotmail.com>
+
+
+Type:            Desktop game from another author (Martin Bazley)
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     Binary package
+Fetch with:      Browser from http://www.starfighter.acornarcade.com/mysite/games.htm#cogs
+
+Build with:      PackIt
+
+Use PackIt to create a binary package.
+
+To update use last package and update files and fields.

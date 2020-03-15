@@ -1,0 +1,18 @@
+RiscPkg Policy
+==============
+
+Latest version for the RISC OS Packaging project policy manual
+
+Current Version: 0.6.0.0-1
+
+Type:            This is the latest version of the Policy modified by me based on the original by Graham Shaw
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     https://github.com/alanbu/RiscPkg-Policy
+
+Build with:      GCCSDK Autobuilder: riscpkg-policy
+

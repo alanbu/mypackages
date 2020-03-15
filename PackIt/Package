@@ -1,0 +1,27 @@
+PackIt
+======
+
+Current version: 0.6.2-1
+
+Utility to help create Packages
+
+ Creates most common types of binary packages for use with the RISC OS Packaging Project.
+ Binary packages are anything where the package is not built from source code or where
+ the source code is not made available.
+ It can also be used as a starting point to create the control files for
+ more complicated binary packages or source code packages.
+
+Type:            Native program by me
+Depends:         SharedUnixLibrary (>= 1.11), Tabs
+
+Permission:      None needed - it's written by me
+
+Package creation
+----------------
+
+Source Type:     github.com/alanbu/PackIt
+
+Build with:      GCCSDK autobuilder (packit)
+Build libraries: TBX, LibZipArchive
+
+

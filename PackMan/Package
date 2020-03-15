@@ -1,0 +1,24 @@
+PackMan
+
+Current Version: 0.9.4-1
+
+Alternative Package Manager (Beta)
+
+ Install, Remove and Upgrade RISC OS Packaging project packages.
+ This is an alternative packages front end to !RiscPkg.
+ Amongst other features it includes a summary information status bar
+ and allows filtering and searching of the package lists.
+ 
+Type:       Native program by me
+Depends:    SharedUnixLibrary
+
+Permission: None needed - it's written by me
+
+Package creation
+----------------
+
+Source Type:     https://github.com/alanbu/packman
+
+Build with:      GCCSDK Autobuilder or Gcc 4.9.4, Make, CCRes
+Build libraries: TBX, LibPKG, LibZip, LibCURL
+

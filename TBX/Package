@@ -1,0 +1,43 @@
+TBX
+
+Creates: TBX-Dev, TBX-Examples, TbxAppGen
+
+TBX-Dev
+
+A C++ library to create applications using the RISC OS Toolbox
+ This library is provided in ELF format and although functional enough to write many applications is incomplete.
+
+Current Version: 0.7.5-1
+
+TBX-Examples
+
+Current Version: 0.6-2
+
+Example programs for the TBX C++ library.
+ This package installs a TbxExamples folder that contains various examples
+ of the use of the TBX C++ library.
+
+
+TbxAppGen
+
+Generate skeleton applications that use the TBX C++ library
+ This package installs TbxAppGen that allows the simple creation of
+ skeleton applications that the TBX C++ library.
+ These skeleton applications can then be expanded to create full RISC OS
+ applications with the help of the TBX library available in the TBX-Dev
+ package.
+
+Current Version: 0.4-2
+
+
+Type:       Native Library and supporting programs and examples
+
+Permission:      None needed - it's written by me
+
+Package creation
+----------------
+
+Source Type:     https://github.com/alanbu/tbx
+
+Build with:      GCCSDK Autobuilder or gcc, Make, doxygen
+

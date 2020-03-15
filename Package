@@ -1,0 +1,22 @@
+This is a template for the Package text file that should be added to the directory for a Package
+
+Application/Library name
+========================
+
+Brief description of what it is.
+
+Current Version: Latest version
+
+Type:            What it is an where it comes from
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     Binary package/Build from source
+Fetch with:      
+
+Build with:      PackIt/Make obey file/whatever
+
+How to update

@@ -1,0 +1,22 @@
+LibPkg
+======
+
+Backend library for downloading and installing RISC OS packages
+
+Produces          Version
+LibPkg-Common     0.8.2-1
+LibPkg-Dev        0.8.2-1
+LibPkg-Doc        0.8.2-1
+
+
+Type:            Graham Shaw RISC OS packaging back end updated by me.
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     LibPkg is built and packaged using the GCCSDK autobuilder
+
+Source code available on GitHub: github.com/alanbu/LibPkg
+
