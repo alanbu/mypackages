@@ -1,0 +1,25 @@
+MagicMush
+
+Platform game where you collect mushrooms
+ Collect mushrooms and walk over the exit without getting killed.
+ The game also allows you to create your own levels.
+
+Current Version: 1.13-2
+
+Maintainer: Alan Buckley <alan_baa@hotmail.com>
+
+
+Type:            Desktop game from another author (Martin Bazley)
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     Binary package
+Fetch with:      Browser from http://www.starfighter.acornarcade.com/mysite/games.htm#magicmush
+
+Build with:      PackIt
+
+Use PackIt to create a binary package.
+
+To update use last package and update files and fields.
