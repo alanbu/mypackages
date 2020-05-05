@@ -4,9 +4,9 @@ LibPkg
 Backend library for downloading and installing RISC OS packages
 
 Produces          Version
-LibPkg-Common     0.8.2-1
-LibPkg-Dev        0.8.2-1
-LibPkg-Doc        0.8.2-1
+LibPkg-Common     0.8.3-1
+LibPkg-Dev        0.8.3-1
+LibPkg-Doc        0.8.3-1
 
 
 Type:            Graham Shaw RISC OS packaging back end updated by me.
