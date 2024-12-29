@@ -1,0 +1,4 @@
+| Run file for OSLib - set to use AOF if not set and open file window
+/<Obey$Dir>.!Boot
+Filer_OpenDir <Obey$Dir>
+

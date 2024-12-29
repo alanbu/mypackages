@@ -1,0 +1,20 @@
+OSLib
+=====
+
+C library to wrap RISC OS swi calls
+
+Current Version: 7.00
+
+Type:            C Library from https://ro-oslib.sourceforge.io/
+
+Permission:      GPL with exceptions
+
+Package creation
+----------------
+
+Source Type:     Download zips from above website and place in ZIPS folder
+Fetch with:      Browser/wget
+
+Build with:      Obey file UnpackZips. Then Make -f RiscPkg/Rules.
+
+How to update:   Download new version, update versions in UnpackZips, RiscPkg/Rules and control files.

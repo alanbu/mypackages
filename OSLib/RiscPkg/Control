@@ -1,0 +1,39 @@
+Source: OSLib
+Section: Library
+Priority: Optional
+Licence: Free
+Maintainer: Alan Buckley <alan_baa@hotmail.com>
+Standards-Version: 0.4.0
+Version: 7.00-1
+Environment: arm
+Homepage: https://ro-oslib.sourceforge.io
+Description: C functions and headers for the RISC OS system calls.
+ OSLib is a set of functions and C headers to provide complete coverage of the RISC OS application programmer's interface in C.
+ It provides access from C code to all RISC O S system calls ("SWI's") which is
+      efficient: often, memory access is completely avoided;
+      type-safe: every argument can be type-checked by the compiler;
+      obvious: a SWI is called by the "obvious" syntax;
+      complete: every SWI is covered;
+      register-safe: hides (often idiosyncratic) register allocation;
+      language-independent: although the  headers are specific to C,  the
+      library is not - any A P C S-conformant language can call it.
+
+Package: OSLib
+Components: Apps.Library.!OSLib (Movable)
+
+Package: OSLibSupport
+Depends: OSLib
+Components: Apps.Library.!OSLibSupp (Movable)
+Description: C functions and headers to compliment OSLib
+ OSLibSupport is an additional set of C functions and headers
+ that work with OSLib to provide useful helper routines to
+ work with the raw "SWI" calls provided with OSLib.
+ .
+ Amongst other things it includes methods to help with
+ Choices, Messages and Wimp event handling.
+
+
+Package: OSLibHelp
+Depends: OSLib, StrongHelp
+Description: OSLib APIs in a StrongHelp Manual.
+

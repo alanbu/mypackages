@@ -1,0 +1,3 @@
+| Set up for AOF version if not already set and open filer onto directory
+/<Obey$Dir>.!Boot
+Filer_OpenDir <Obey$Dir>

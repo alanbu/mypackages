@@ -1,0 +1,2 @@
+| Setup to use ELF shared unix library soft-float version of OSLib for GCC4
+/<Obey$Dir>.elf-unixlib.SetVars

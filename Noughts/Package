@@ -1,0 +1,21 @@
+Noughts
+=======
+
+Noughts and crosses game
+
+Current Version: Latest version
+
+Type:            What it is an where it comes from
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     Binary package
+Fetch with:      http://www.starfighter.acornarcade.com/mysite/games.htm#noughts
+
+Build with:      PackIt
+
+How to update:   Use packit on last version
+

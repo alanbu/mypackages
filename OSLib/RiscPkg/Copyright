@@ -1,0 +1,22 @@
+This is part of the RISC OS Packaging Project distribution of OSLib,
+OSLibSupport and OSLibHelp.
+
+The OSLib web-site is at https://ro-oslib.sourceforge.io
+
+Packaged by: Alan Buckley (alan_baa@hotmail.com)
+
+OSLib is released under the GNU  public licence - for details see the file:
+
+<Common_Licences$Dir>.GPL-1.txt
+
+or downloaded from the URL:
+
+https://gnu.org/licenses/old-licenses/gpl-1.0.en.html#license-text
+
+The  copyright holders have granted  a relaxation of the conditions of this
+licence to allow its use in constructing proprietary  software.  This means
+that  it  is  free software  itself,  but applications linked to it need not
+be.  It follows that any changes to  OSLib itself (the contents of the
+directories Tools, Source, and OSLibSupport) fall under the terms of the GNU
+Public Licence; but programmes written using OSLib do not.
+

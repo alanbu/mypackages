@@ -1,0 +1,21 @@
+Application/Library name
+========================
+
+Location to store StrongHelp Manuals for easy access by the StrongHelp application
+
+Current Version: 2.90
+
+Type:            Extracted from the StrongHelp download
+
+Permission:      Free
+
+Package creation
+----------------
+
+Source Type:     Binary package/Build from source
+Fetch from:      https://stronged.iconbar.com/fjg/index.html
+
+Build with:      Extract !Manuals from shXXX.zip and install to Manuals
+
+How to update:   Use Packit on previous version and update version number and !Manuals
+

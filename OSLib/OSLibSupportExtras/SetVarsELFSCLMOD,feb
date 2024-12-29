@@ -1,0 +1,2 @@
+| Setup to use ELF shared C library hard-float module version of OSLib for GCC4
+/<Obey$Dir>.elf-scl-mod.SetVars

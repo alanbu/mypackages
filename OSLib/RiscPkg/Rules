@@ -1,0 +1,161 @@
+VERSION = 7/00-1
+OSLIB = OSLib_$(VERSION)
+OSLIBSUPPORT = OSLibSupport_$(VERSION)
+OSLIBHELP = OSLibHelp_$(VERSION)
+
+# Currently need to unpack zip files to the following
+REL_AOF=OSLib-aof
+REL_ELF_SCL_APP=OSLib-elf-scl-app-hardfloat
+REL_ELF_SCL_MOD=OSLib-elf-scl-mod-hardfloat
+REL_ELF_UNIXLIB=OSLib-elf-unixlib-softfloat
+
+# OSLibSupport equivalents
+REL_SUP_AOF=OSLibSupport-aof
+REL_SUP_ELF_SCL_APP=OSLibSupport-elf-scl-app-hardfloat
+REL_SUP_ELF_SCL_MOD=OSLibSupport-elf-scl-mod-hardfloat
+REL_SUP_ELF_UNIXLIB=OSLibSupport-elf-unixlib-softfloat
+
+# Strong help manual
+REL_HELP=OSLib-help
+
+# Location of above in package
+LOC_AOF=aof
+LOC_ELF_SCL_APP=elf-scl-app
+LOC_ELF_SCL_MOD=elf-scl-mod
+LOC_ELF_UNIXLIB=elf-unixlib
+
+
+.PHONY: all build $(OSLIB) $(OSLIBSUPPORT) $(OSLIBHELP)
+
+all:	build $(OSLIB) $(OSLIBSUPPORT) $(OSLIBHELP)
+
+build:
+	Echo Currently using unpacked zip files and not building
+#	Obey !OsLib.SetVars
+#      Obey !OsLib.Make
+
+$(OSLIB):
+	IfThere Temp Then wipe Temp ~CFR~V
+
+	cdir Temp
+	cdir Temp.Apps
+	cdir Temp.Apps.Library
+	cdir Temp.Apps.Library.!OSLib
+	cdir Temp.Apps.Library.!OSLib.docs
+
+# copy common files
+	copy OSLibExtras.* Temp.Apps.Library.!OsLib.* ~CFR
+	copy $(REL_AOF).* Temp.Apps.Library.!OSLib.docs.* ~CF~R
+	rename Temp.Apps.Library.!OSLib.docs.COPYING Temp.Apps.Library.!OSLib.docs.Copying
+
+# copy AOF files
+	cdir Temp.Apps.Library.!OSLib.$(LOC_AOF)
+	cdir Temp.Apps.Library.!OSLib.$(LOC_AOF).o
+	copy $(REL_AOF).oslib.* Temp.Apps.Library.!OSLib.$(LOC_AOF).* ~CFR
+	copy $(REL_AOF).o.* Temp.Apps.Library.!OSLib.$(LOC_AOF).o.* ~CFR
+
+# copy ELF SCL APP hard float files
+	cdir Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_APP)
+	copy $(REL_ELF_SCL_APP).oslib.* Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_APP).* ~CFR
+	copy $(REL_ELF_SCL_APP).libOSLib32/a Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_APP).libOSLib32/a ~CF
+
+# copy ELF SCL APP hard float files
+	cdir Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_MOD)
+	copy $(REL_ELF_SCL_MOD).oslib.* Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_MOD).* ~CFR
+	copy $(REL_ELF_SCL_MOD).libOSLib32/a Temp.Apps.Library.!OSLib.$(LOC_ELF_SCL_MOD).libOSLib32/a ~CF
+
+# copy ELF UnixLib soft float files
+	cdir Temp.Apps.Library.!OSLib.$(LOC_ELF_UNIXLIB)
+	copy $(REL_ELF_UNIXLIB).oslib.* Temp.Apps.Library.!OSLib.$(LOC_ELF_UNIXLIB).* ~CFR
+	copy $(REL_ELF_UNIXLIB).libOSLib32/a Temp.Apps.Library.!OSLib.$(LOC_ELF_UNIXLIB).libOSLib32/a ~CF
+
+# Sort out SetVars
+	delete Temp.Apps.Library.!OSLib.docs.SetVars
+	copy $(REL_AOF).SetVars Temp.Apps.Library.!OSlib.$(LOC_AOF).SetVars ~CF
+	copy $(REL_ELF_SCL_APP).SetVars Temp.Apps.Library.!OSlib.$(LOC_ELF_SCL_APP).SetVars ~CF
+	copy $(REL_ELF_SCL_MOD).SetVars Temp.Apps.Library.!OSlib.$(LOC_ELF_SCL_MOD).SetVars ~CF
+	copy $(REL_ELF_UNIXLIB).SetVars Temp.Apps.Library.!OSlib.$(LOC_ELF_UNIXLIB).SetVars ~CF
+
+# Add in Packaging files
+	cdir Temp.RiscPkg
+	copy RiscPkg.Copyright Temp.RiscPkg.Copyright ~CF
+	Dir Temp
+	riscpkg-gencontrol OSLib < ../RiscPkg/Control > RiscPkg/Control
+	zip -r ^.RiscPkg.$(OSLIB) * -i@^.RiscPkg.OSLIB/inc
+	Dir ^
+
+	IfThere Temp Then wipe Temp ~CFR~V
+
+$(OSLIBSUPPORT):
+	IfThere Temp Then wipe Temp ~CFR~V
+
+	cdir Temp
+	cdir Temp.Apps
+	cdir Temp.Apps.Library
+	cdir Temp.Apps.Library.!OSLibSupp
+	cdir Temp.Apps.Library.!OSLibSupp.docs
+
+# copy common files
+	copy OSLibExtras.* Temp.Apps.Library.!OSLibSupp.* ~CFR
+	copy $(REL_SUP_AOF).* Temp.Apps.Library.!OSLibSupp.docs.* ~CF~R
+	rename Temp.Apps.Library.!OSLibSupp.docs.COPYING Temp.Apps.Library.!OSLibSupp.docs.Copying
+	copy $(REL_SUP_AOF).Doc.* Temp.Apps.Library.!OSLibSupp.docs.* ~CF~R
+
+# copy AOF files
+	cdir Temp.Apps.Library.!OSLibSupp.$(LOC_AOF)
+	cdir Temp.Apps.Library.!OSLibSupp.$(LOC_AOF).o
+	copy $(REL_SUP_AOF).h.* Temp.Apps.Library.!OSLibSupp.$(LOC_AOF).* ~CFR
+	copy $(REL_SUP_AOF).o.* Temp.Apps.Library.!OSLibSupp.$(LOC_AOF).o.* ~CFR
+
+# copy ELF SCL APP hard float files
+	cdir Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_APP)
+	copy $(REL_SUP_ELF_SCL_APP).h.* Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_APP).* ~CFR
+	copy $(REL_SUP_ELF_SCL_APP).libOSLibSupport32/a Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_APP).libOSLibSupport32/a ~CF
+
+# copy ELF SCL APP hard float files
+	cdir Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_MOD)
+	copy $(REL_SUP_ELF_SCL_MOD).h.* Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_MOD).* ~CFR
+	copy $(REL_SUP_ELF_SCL_MOD).libOSLibSupport32/a Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_SCL_MOD).libOSLibSupport32/a ~CF
+
+# copy ELF UnixLib soft float files
+	cdir Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_UNIXLIB)
+	copy $(REL_SUP_ELF_UNIXLIB).h.* Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_UNIXLIB).* ~CFR
+	copy $(REL_SUP_ELF_UNIXLIB).libOSLibSupport32/a Temp.Apps.Library.!OSLibSupp.$(LOC_ELF_UNIXLIB).libOSLibSupport32/a ~CF
+
+	delete Temp.Apps.Library.!OSLibSupp.docs.SetVars
+	copy $(REL_SUP_AOF).SetVars Temp.Apps.Library.!OSlibSupp.$(LOC_AOF).SetVars ~CF
+	copy $(REL_SUP_ELF_SCL_APP).SetVars Temp.Apps.Library.!OSlibSupp.$(LOC_ELF_SCL_APP).SetVars ~CF
+	copy $(REL_SUP_ELF_SCL_MOD).SetVars Temp.Apps.Library.!OSlibSupp.$(LOC_ELF_SCL_MOD).SetVars ~CF
+	copy $(REL_SUP_ELF_UNIXLIB).SetVars Temp.Apps.Library.!OSlibSupp.$(LOC_ELF_UNIXLIB).SetVars ~CF
+
+	cdir Temp.RiscPkg
+
+	copy RiscPkg.Copyright Temp.RiscPkg.Copyright ~CF
+
+	Dir Temp
+	riscpkg-gencontrol OSLibSupport < ../RiscPkg/Control > RiscPkg/Control
+	zip -r ^.RiscPkg.$(OSLIBSUPPORT) * -i@^.RiscPkg.OSLibSupport/inc
+	Dir ^
+
+	IfThere Temp Then wipe Temp ~CFR~V
+
+$(OSLIBHELP):
+	IfThere Temp Then wipe Temp ~CFR~V
+
+	cdir Temp
+	cdir Temp.Apps
+	cdir Temp.Apps.Library
+	cdir Temp.Apps.Library.!OSLib
+	cdir Temp.Apps.Library.!OSLib.docs
+
+	copy $(REL_HELP).OSLib Temp.Apps.Library.!OSLib.docs.OSLib ~CF~R
+
+	cdir Temp.RiscPkg
+	copy RiscPkg.Copyright Temp.RiscPkg.Copyright ~CF
+
+	Dir Temp
+	riscpkg-gencontrol OSLibHelp < ../RiscPkg/Control > RiscPkg/Control
+	zip -r ^.RiscPkg.$(OSLIBHELP) * -i@^.RiscPkg.OSLibHelp/inc
+	Dir ^
+
+	IfThere Temp Then wipe Temp ~CFR~V

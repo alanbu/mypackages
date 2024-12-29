@@ -1,0 +1,21 @@
+| Unpack OSLib zip files ready for packaging
+
+Dir <Obey$Dir>
+Set OSLibPack$Dir <Obey$Dir>.zips
+Set OSLibVersion 7/00
+
+IfThere <OSLibPack$Dir>.OSLib-aof-<OsLibVersion>/zip then else Error Is OSLibPack$Dir and OSLibVersion set correctly - unable to find <OSLibPack$Dir>.OSLib-aof-<OSLibVersion>/zip
+
+unzip <OSLibPack$Dir>.OSLib-src-<OSLibVersion>/zip *
+
+unzip <OSLibPack$Dir>.OSLib-aof-<OSLibVersion>/zip * -d OSLib-aof
+unzip <OSLibPack$Dir>.OSLib-elf-scl-app-hardfloat-<OSLibVersion>/zip * -d OSLib-elf-scl-app-hardfloat
+unzip <OSLibPack$Dir>.OSLib-elf-scl-mod-hardfloat-<OSLibVersion>/zip * -d OSLib-elf-scl-mod-hardfloat
+unzip <OSLibPack$Dir>.OSLib-elf-unixlib-softfloat-<OSLibVersion>/zip * -d OSLib-elf-unixlib-softfloat
+
+unzip <OSLibPack$Dir>.OSLibStrongHelp-<OSLibVersion>/zip * -d OSLib-help
+
+unzip <OSLibPack$Dir>.OSLibSupport-aof-<OSLibVersion>/zip * -d OSLibSupport-aof
+unzip <OSLibPack$Dir>.OSLibSupport-elf-scl-app-hardfloat-<OSLibVersion>/zip * -d OSLibSupport-elf-scl-app-hardfloat
+unzip <OSLibPack$Dir>.OSLibSupport-elf-scl-mod-hardfloat-<OSLibVersion>/zip * -d OSLibSupport-elf-scl-mod-hardfloat
+unzip <OSLibPack$Dir>.OSLibSupport-elf-unixlib-softfloat-<OSLibVersion>/zip * -d OSLibSupport-elf-unixlib-softfloat

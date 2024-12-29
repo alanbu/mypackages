@@ -1,0 +1,2 @@
+If "<OSLib$Dir>" = "" Then /<Obey$Dir>.aof.SetVars
+IconSprites <OSLib$Dir>.^.!Sprites
